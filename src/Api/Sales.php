@@ -3,6 +3,7 @@
 namespace Ebay\Buy\Marketplace\Insights\Api;
 
 use Ebay\Buy\Marketplace\Insights\Model\SalesHistoryPagedCollection;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Sales extends AbstractAPI
 {
@@ -206,9 +207,9 @@ class Sales extends AbstractAPI
      *                       at
      *                       https://developer.ebay.com/api-docs/buy/marketplace_insights/types/cos:SortField
      *
-     * @return SalesHistoryPagedCollection
+     * @return SalesHistoryPagedCollection|UnexpectedResponse
      */
-    public function search(array $queries = []): SalesHistoryPagedCollection
+    public function search(array $queries = [])
     {
         return $this->request(
         'search',
